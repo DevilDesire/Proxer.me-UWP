@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="Proxer.me_UWP.Views.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:views="using:Proxer.me_UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <controls:HamburgerMenu x:Name="RootHamburgerMenu">
+        <controls:HamburgerMenu.PrimaryButtons>
+            <controls:HamburgerButtonInfo ClearHistory="True"
+                                          PageType="views:MainPage"
+                                          AutomationProperties.Name="Proxer">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="News"/>
+                </StackPanel>
+            </controls:HamburgerButtonInfo>
+        </controls:HamburgerMenu.PrimaryButtons>
+        <controls:HamburgerMenu.SecondaryButtons>
+            <controls:HamburgerButtonInfo x:Name="SettingsButton"
+                                          PageParameter="0"
+                                          PageType="views:SettingsPage">
+                <controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo />
+                </controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Height="48"
+                                Width="48"
+                                Symbol="Setting" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Settings"/>
+                </StackPanel>
+            </controls:HamburgerButtonInfo>
+        </controls:HamburgerMenu.SecondaryButtons>
+    </controls:HamburgerMenu>
+</Page>
