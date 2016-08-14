@@ -1,9 +1,11 @@
-﻿namespace ProxerMeApi.Interfaces.Values
+﻿using System.Collections.Generic;
+
+namespace ProxerMeApi.Interfaces.Values
 {
-    public interface IBaseValue
+    public interface IBaseValue<T>
     {
-        string error { get; set; } 
-        string message { get; set; }
-        string code { get; set; }
+        int Error { get; set; } 
+        string Message { get; set; }
+        List<T> Data { get; set; }
     }
 }

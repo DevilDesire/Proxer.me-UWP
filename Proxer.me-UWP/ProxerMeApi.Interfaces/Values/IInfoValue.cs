@@ -2,7 +2,7 @@
 
 namespace ProxerMeApi.Interfaces.Values
 {
-    public interface IInfoValue : IBaseValue
+    public interface IInfoValue
     {
         string id { get; set; }
         string name { get; set; }

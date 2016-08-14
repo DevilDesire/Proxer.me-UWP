@@ -3,7 +3,7 @@ using ProxerMeApi.Interfaces.Values;
 
 namespace ProxerMeApi.Implementation.Values
 {
-    public class InfoValue : BaseValue, IInfoValue
+    public class InfoValue : IInfoValue
     {
         public string id { get; set; }
         public string name { get; set; }

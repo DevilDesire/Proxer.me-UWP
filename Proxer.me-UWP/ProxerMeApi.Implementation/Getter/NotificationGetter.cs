@@ -1,15 +1,24 @@
 ﻿using System.Collections.Generic;
-using DevilDesireDevLib.Implementation.Networking;
-using DevilDesireDevLib.Interfaces.Networking;
+using Newtonsoft.Json;
+using ProxerMeApi.Implementation.Values;
 using ProxerMeApi.Interfaces.Getter;
+using ProxerMeApi.Interfaces.Values;
 
 namespace ProxerMeApi.Implementation.Getter
 {
-    public class NotificationGetter : INotificationGetter
+    public class NotificationGetter : ProxerMeApiBase, INotificationGetter
     {
-        private INetwork m_Network = new Network();
-        public void GetNews()
+        public IBaseValue<INewsValue> GetNews(string apiVersion, string apiKey)
         {
+            string retval = Network.LoadUrlPost(UrlGetter.GetNotificationNewsUrl(apiVersion), PostParamGetter.GetNewsParams(apiKey));
+            BaseValue<NewsValue> baseValue = JsonConvert.DeserializeObject<BaseValue<NewsValue>>(retval);
+
+            return new BaseValue<INewsValue>
+            {
+                Error = baseValue.Error,
+                Message = baseValue.Message,
+                Data = new List<INewsValue>(baseValue.Data)
+            };
         }
     }
 }

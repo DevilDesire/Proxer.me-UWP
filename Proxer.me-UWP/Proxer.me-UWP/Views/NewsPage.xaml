@@ -5,9 +5,68 @@
     xmlns:local="using:Proxer.me_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:Proxer.me_UWP.ViewModels"
+    xmlns:converter="using:Proxer.me_UWP.Utils"
     mc:Ignorable="d">
+    <Page.Resources>
+        <converter:NewsToNewsImageUriConverter x:Key="NewsToNewsImageUriConverter"/>
+        <converter:NewsTemplateHeaderConverter x:Key="NewsTemplateHeaderConverter"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <vm:NewsPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource DefaultColorBackground}">
+        <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
+            <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                                 RelativePanel.AlignRightWithPanel="True"
+                                 RelativePanel.AlignTopWithPanel="True" Text="News">
+            </controls:PageHeader>
+
+            <ListView ItemsSource="{Binding NewsValues.Data}" SelectionMode="None"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="pageHeader">
+                <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grid" Margin="0,0,0,10" HorizontalAlignment="Stretch" >
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#BF590000" Offset="0"/>
+                                    <GradientStop Color="#00000000" Offset="0.15"/>
+                                    <GradientStop Color="#00000000" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Height="150" Width="150" Grid.Row="0" Source="{Binding Mode=OneWay, Converter={StaticResource NewsToNewsImageUriConverter}}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            <RelativePanel Grid.Column="1" Margin="10,0">
+                                <TextBlock x:Name="DateAutorHolder" Text="{Binding Mode=OneWay, Converter={StaticResource NewsTemplateHeaderConverter}}" FontSize="10" Foreground="LightSlateGray" RelativePanel.AlignLeftWithPanel="True" />
+                                <TextBlock Text="{Binding Subject}" x:Name="SubjectHeaderText" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontWeight="Bold" RelativePanel.Below="DateAutorHolder"/>
+                                <StackPanel x:Name="DescriptionHolder"
+                                            RelativePanel.Below="SubjectHeaderText"
+                                            RelativePanel.AlignLeftWithPanel="True"
+                                            RelativePanel.AlignRightWithPanel="True">
+                                    <TextBlock Text="{Binding Catname}" Foreground="IndianRed" FontSize="12" FontWeight="Thin"/>
+                                    <TextBlock Text ="{Binding Description}" HorizontalAlignment="Stretch" FontSize="14" FontWeight="Light" Foreground="White" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
+                            </RelativePanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>

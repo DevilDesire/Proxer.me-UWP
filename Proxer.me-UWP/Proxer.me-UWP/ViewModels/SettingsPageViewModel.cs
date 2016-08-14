@@ -18,7 +18,7 @@ namespace Proxer.me_UWP.ViewModels
 
         public SettingsPartViewModel()
         {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+            if (DesignMode.DesignModeEnabled)
             {
                 // designtime
             }
@@ -31,31 +31,31 @@ namespace Proxer.me_UWP.ViewModels
         public bool UseShellBackButton
         {
             get { return m_Settings.UseShellBackButton; }
-            set { m_Settings.UseShellBackButton = value; base.RaisePropertyChanged(); }
+            set { m_Settings.UseShellBackButton = value; RaisePropertyChanged(); }
         }
 
         public bool UseLightThemeButton
         {
             get { return m_Settings.AppTheme.Equals(ApplicationTheme.Light); }
-            set { m_Settings.AppTheme = value ? ApplicationTheme.Light : ApplicationTheme.Dark; base.RaisePropertyChanged(); }
+            set { m_Settings.AppTheme = value ? ApplicationTheme.Light : ApplicationTheme.Dark; RaisePropertyChanged(); }
         }
 
-        private string _BusyText = "Please wait...";
+        private string m_BusyText = "Please wait...";
         public string BusyText
         {
-            get { return _BusyText; }
+            get { return m_BusyText; }
             set
             {
-                Set(ref _BusyText, value);
-                _ShowBusyCommand.RaiseCanExecuteChanged();
+                Set(ref m_BusyText, value);
+                m_ShowBusyCommand.RaiseCanExecuteChanged();
             }
         }
 
-        DelegateCommand _ShowBusyCommand;
+        DelegateCommand m_ShowBusyCommand;
         public DelegateCommand ShowBusyCommand
-            => _ShowBusyCommand ?? (_ShowBusyCommand = new DelegateCommand(async () =>
+            => m_ShowBusyCommand ?? (m_ShowBusyCommand = new DelegateCommand(async () =>
             {
-                Views.Busy.SetBusy(true, _BusyText);
+                Views.Busy.SetBusy(true, m_BusyText);
                 await Task.Delay(5000);
                 Views.Busy.SetBusy(false);
             }, () => !string.IsNullOrEmpty(BusyText)));
@@ -63,16 +63,16 @@ namespace Proxer.me_UWP.ViewModels
 
     public class AboutPartViewModel : ViewModelBase
     {
-        public Uri Logo => Windows.ApplicationModel.Package.Current.Logo;
+        public Uri Logo => Package.Current.Logo;
 
-        public string DisplayName => Windows.ApplicationModel.Package.Current.DisplayName;
-        public string Publisher => Windows.ApplicationModel.Package.Current.PublisherDisplayName;
+        public string DisplayName => Package.Current.DisplayName;
+        public string Publisher => Package.Current.PublisherDisplayName;
 
         public string Version
         {
             get
             {
-                PackageVersion version = Windows.ApplicationModel.Package.Current.Id.Version;
+                PackageVersion version = Package.Current.Id.Version;
                 return string.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
             }
         }
