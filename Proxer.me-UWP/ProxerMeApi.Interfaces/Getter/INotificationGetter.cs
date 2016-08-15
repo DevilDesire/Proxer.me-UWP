@@ -4,6 +4,6 @@ namespace ProxerMeApi.Interfaces.Getter
 {
     public interface INotificationGetter
     {
-        IBaseValue<INewsValue> GetNews(string apiVersion, string apiKey);
+        IBaseCollectionValue<INewsValue> GetNews(string apiVersion, string apiKey);
     }
 }

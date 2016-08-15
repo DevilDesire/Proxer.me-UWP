@@ -8,16 +8,16 @@ namespace ProxerMeApi.Implementation.Getter
 {
     public class NotificationGetter : ProxerMeApiBase, INotificationGetter
     {
-        public IBaseValue<INewsValue> GetNews(string apiVersion, string apiKey)
+        public IBaseCollectionValue<INewsValue> GetNews(string apiVersion, string apiKey)
         {
             string retval = Network.LoadUrlPost(UrlGetter.GetNotificationNewsUrl(apiVersion), PostParamGetter.GetNewsParams(apiKey));
-            BaseValue<NewsValue> baseValue = JsonConvert.DeserializeObject<BaseValue<NewsValue>>(retval);
+            BaseCollectionValue<NewsValue> baseCollectionValue = JsonConvert.DeserializeObject<BaseCollectionValue<NewsValue>>(retval);
 
-            return new BaseValue<INewsValue>
+            return new BaseCollectionValue<INewsValue>
             {
-                Error = baseValue.Error,
-                Message = baseValue.Message,
-                Data = new List<INewsValue>(baseValue.Data)
+                Error = baseCollectionValue.Error,
+                Message = baseCollectionValue.Message,
+                Data = new List<INewsValue>(baseCollectionValue.Data)
             };
         }
     }

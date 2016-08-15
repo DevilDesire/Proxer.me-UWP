@@ -16,11 +16,11 @@ namespace Proxer.me_UWP.ViewModels
         {
             if (suspensionState.Any())
             {
-                NewsValues = (IBaseValue<INewsValue>)suspensionState[nameof(NewsValues)];
+                NewsCollectionValues = (IBaseCollectionValue<INewsValue>)suspensionState[nameof(NewsCollectionValues)];
             }
             else
             {
-                NewsValues = ProxerMeBase.NotificationGetter.GetNews(ApplicationKeys.ApiVersion, ApplicationKeys.ApiTokenKey);
+                NewsCollectionValues = ProxerMeBase.NotificationGetter.GetNews(ApplicationKeys.ApiVersion, ApplicationKeys.ApiTokenKey);
             }
 
             await Task.CompletedTask;
@@ -30,7 +30,7 @@ namespace Proxer.me_UWP.ViewModels
         {
             if (suspending)
             {
-                suspensionState[nameof(NewsValues)] = NewsValues;
+                suspensionState[nameof(NewsCollectionValues)] = NewsCollectionValues;
             }
 
             await Task.CompletedTask;
@@ -42,12 +42,12 @@ namespace Proxer.me_UWP.ViewModels
             await Task.CompletedTask;
         }
 
-        private IBaseValue<INewsValue> m_NewsValues;
+        private IBaseCollectionValue<INewsValue> m_NewsCollectionValues;
 
-        public IBaseValue<INewsValue> NewsValues
+        public IBaseCollectionValue<INewsValue> NewsCollectionValues
         {
-            get { return m_NewsValues; }
-            set { Set(ref m_NewsValues, value); }
+            get { return m_NewsCollectionValues; }
+            set { Set(ref m_NewsCollectionValues, value); }
         }
 
         //TODO: Create DelegateCommands => Navigate ForumPost

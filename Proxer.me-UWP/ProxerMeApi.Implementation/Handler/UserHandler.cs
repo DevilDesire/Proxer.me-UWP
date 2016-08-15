@@ -1,28 +1,31 @@
-﻿using System.Collections.Generic;
-using DevilDesireDevLib.Implementation.Networking;
-using DevilDesireDevLib.Interfaces.Networking;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using ProxerMeApi.Implementation.Statics;
+using ProxerMeApi.Implementation.Values;
 using ProxerMeApi.Interfaces.Handler;
+using ProxerMeApi.Interfaces.Values;
 
 namespace ProxerMeApi.Implementation.Handler
 {
-    public class UserHandler : IUserHandler
+    public class UserHandler : ProxerMeApiBase, IUserHandler
     {
-        public void DoLogin(string username, string password)
+        public IBaseValue<IUserLoginValue> DoLogin(string username, string password, string apiKey)
         {
-            Dictionary<string, string> postParams = new Dictionary<string, string>
+            Dictionary<string, string> postParams = PostParamGetter.GetUserLoginParams(username, password, apiKey);
+            string retval= Network.LoadUrlPost("https://proxer.me/api/v1/user/login", postParams, StaticValues.CookieContainer);
+            BaseValue<UserLoginValue> baseValue = JsonConvert.DeserializeObject<BaseValue<UserLoginValue>>(retval);
+            return new BaseValue<IUserLoginValue>
             {
-                {"username", username },
-                { "password", password },
-                { "api_key", "" }
+                Error = baseValue.Error,
+                Message = baseValue.Message,
+                Data = baseValue.Data
             };
-
-            INetwork network = new Network();
-            string retval= network.LoadUrlPost("https://proxer.me/api/v1/user/login", postParams);
         }
 
         public void DoLogout()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

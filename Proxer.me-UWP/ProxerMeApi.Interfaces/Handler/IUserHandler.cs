@@ -1,8 +1,10 @@
-﻿namespace ProxerMeApi.Interfaces.Handler
+﻿using ProxerMeApi.Interfaces.Values;
+
+namespace ProxerMeApi.Interfaces.Handler
 {
     public interface IUserHandler
     {
-        void DoLogin(string username, string password);
+        IBaseValue<IUserLoginValue> DoLogin(string username, string password, string apiKey);
         void DoLogout();
     }
 }

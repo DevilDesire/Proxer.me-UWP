@@ -25,7 +25,7 @@
                                  RelativePanel.AlignTopWithPanel="True" Text="News">
             </controls:PageHeader>
 
-            <ListView ItemsSource="{Binding NewsValues.Data}" SelectionMode="None"
+            <ListView ItemsSource="{Binding NewsCollectionValues.Data}" SelectionMode="None"
                       HorizontalAlignment="Stretch"
                       HorizontalContentAlignment="Stretch"
                       RelativePanel.AlignLeftWithPanel="True"

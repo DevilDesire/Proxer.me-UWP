@@ -1,4 +1,5 @@
-﻿using ProxerMeApi.Interfaces.Token;
+﻿using System.Net;
+using ProxerMeApi.Interfaces.Token;
 
 namespace ProxerMeApi.Implementation.Token
 {

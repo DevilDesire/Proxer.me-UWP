@@ -5,6 +5,8 @@ namespace ProxerMeApi.Implementation.Getter
 {
     public class UrlGetter : IUrlGetter
     {
+        #region GetNotification
+
         public string GetNotificationCountUrl(string apiVersion)
         {
             return string.Format(UrlCollection.NotificationGetCount, apiVersion); 
@@ -19,5 +21,81 @@ namespace ProxerMeApi.Implementation.Getter
         {
             return string.Format(UrlCollection.NotificationDelete, apiVersion);
         }
+
+        #endregion
+
+        #region GetConferences
+        public string GetConferencesGetConstantsUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesGetConstantsUrl, apiVersion); 
+        }
+
+        public string GetConferencesGetConferencesUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesGetConferencesUrl, apiVersion); 
+        }
+
+        public string GetConferencesGetConferenceInfoUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesGetConferenceInfoUrl, apiVersion); 
+        }
+
+        public string GetConferencesGetUserInfoUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesGetUserInfoUrl, apiVersion); 
+        }
+
+        public string GetConferencesGetMessagesUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesGetMessagesUrl, apiVersion); 
+        }
+
+        public string GetConferencesNewConferenceUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesNewConferenceUrl, apiVersion); 
+        }
+
+        public string GetConferencesNewConferenceGroupUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesNewConferenceGroupUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetReportUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetReportUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetMessageUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetMessageUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetUnreadUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetUnreadUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetBlockUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetBlockUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetUnblockUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetUnblockUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetFavourUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetFavourUrl, apiVersion); 
+        }
+
+        public string GetConferencesSetUnfavourUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.ConferencesSetUnfavourUrl, apiVersion); 
+        }
+
+        #endregion
+
     }
 }

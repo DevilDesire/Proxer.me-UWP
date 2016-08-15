@@ -1,4 +1,6 @@
-﻿namespace ProxerMeApi.Interfaces.Token
+﻿using System.Net;
+
+namespace ProxerMeApi.Interfaces.Token
 {
     public interface IApiToken
     {
