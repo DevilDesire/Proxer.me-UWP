@@ -46,4 +46,25 @@ namespace Proxer.me_UWP.Utils
             throw new NotImplementedException();
         }
     }
+
+    public class UnixTimestampToStringConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            try
+            {
+                DateTime toConvert = new DateTime(1970, 1, 1).AddSeconds(System.Convert.ToDouble(value));
+                return toConvert.ToString("dd.MM.yyyy HH:mm:ss");
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

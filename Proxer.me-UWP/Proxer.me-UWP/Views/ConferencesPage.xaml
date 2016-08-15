@@ -5,9 +5,63 @@
     xmlns:local="using:Proxer.me_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:vm="using:Proxer.me_UWP.ViewModels"
+    xmlns:converter="using:Proxer.me_UWP.Utils"
     mc:Ignorable="d">
+    <Page.Resources>
+        <converter:UnixTimestampToStringConverter x:Key="UnixTimestampToStringConverter"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <vm:ConferencesPageViewModel />
+    </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource DefaultColorBackground}">
+        <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                                 RelativePanel.AlignRightWithPanel="True"
+                                 RelativePanel.AlignTopWithPanel="True" Text="Konferenzen">
+            </controls:PageHeader>
+
+            <ListView ItemsSource="{Binding ConferenceCollectionValues.Data}" SelectionMode="Single" Width="300"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.Below="pageHeader">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#BF590000" Offset="0"/>
+                                    <GradientStop Color="#00000000" Offset="0.15"/>
+                                    <GradientStop Color="#00000000" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <Ellipse Height="50" Width="50" Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <StackPanel Grid.Column="1" Margin="10,0" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Topic}" Foreground="White"/>
+                                <TextBlock Text="{Binding Timestamp_End, Converter={StaticResource UnixTimestampToStringConverter}}" Foreground="White"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
 
     </Grid>
 </Page>

@@ -1,8 +1,10 @@
-﻿namespace ProxerMeApi.Interfaces.Handler
+﻿using ProxerMeApi.Interfaces.Values;
+
+namespace ProxerMeApi.Interfaces.Handler
 {
     public interface IConferenceHandler
     {
-        void GetAllConferences();
+        IBaseCollectionValue<IConferenceValue> GetAllConferences();
         void GetConferenceById(int conferenceId);
         void GetUserFromConverenceByConferenceId(int conferenceId);
         void GetMessagesFromConferenceByConferenceId(int conferenceId);

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -54,9 +55,9 @@ namespace Proxer.me_UWP
         {
             StaticValues.ApiVersion = ApplicationKeys.ApiVersion;
             StaticValues.ApiToken = ApplicationKeys.ApiTokenKey;
+            StaticValues.CookieContainer = new CookieContainer();
             IBaseValue<IUserLoginValue> loginInfo = new UserHandler().DoLogin(ApplicationKeys.Username, ApplicationKeys.Password, ApplicationKeys.ApiTokenKey);
             ApplicationKeys.UserToken = loginInfo.Data.Token;
-            new ConferenceHandler().GetAllConferences();
             await Task.Delay(5000);
 
             NavigationService.Navigate(typeof(Views.BlankPage));
