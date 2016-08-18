@@ -37,5 +37,31 @@ namespace ProxerMeApi.Implementation.Getter
 
             return postParams;
         }
+
+        public Dictionary<string, string> GetMessagesParams(int? conferenceId, int? messageId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string>();
+            if (conferenceId.HasValue)
+            {
+                postParams.Add("conference_id", conferenceId.Value.ToString());
+            }
+
+            if (messageId.HasValue)
+            {
+                postParams.Add("message_id", messageId.Value.ToString());
+            }
+
+            AddApiToken(postParams, apiKey);
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetSetMessageParams(int conferenceId, string message, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string>();
+            postParams.Add("conference_id", conferenceId.ToString());
+            postParams.Add("text", message);
+            AddApiToken(postParams, apiKey);
+            return postParams;
+        }
     }
 }

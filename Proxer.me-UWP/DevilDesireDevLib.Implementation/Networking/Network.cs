@@ -10,12 +10,12 @@ namespace DevilDesireDevLib.Implementation.Networking
 {
     public class Network : INetwork
     {
-        public string LoadUrl(string url, CookieContainer cookieContainer = null, int timeout = 3000)
+        public string LoadUrl(string url, CookieContainer cookieContainer = null, int timeout = 10000)
         {
             return LoadUrlPost(url, null, cookieContainer, timeout);
         }
 
-        public string LoadUrlPost(string url, Dictionary<string, string> postParams, CookieContainer cookieContainer = null, int timeout = 3000)
+        public string LoadUrlPost(string url, Dictionary<string, string> postParams, CookieContainer cookieContainer = null, int timeout = 10000)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest) WebRequest.Create(url);
 

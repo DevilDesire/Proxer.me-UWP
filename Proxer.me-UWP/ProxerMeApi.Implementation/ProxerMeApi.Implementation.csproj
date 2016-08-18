@@ -127,6 +127,7 @@
     <Compile Include="Token\ApiToken.cs" />
     <Compile Include="Values\NewsValue.cs" />
     <Compile Include="Values\UserLoginValue.cs" />
+    <Compile Include="Wrapper\MessageTemplateSelector.cs" />
     <EmbeddedResource Include="Properties\ProxerMeApi.Implementation.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +144,7 @@
       <Name>ProxerMeApi.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Wrapper\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

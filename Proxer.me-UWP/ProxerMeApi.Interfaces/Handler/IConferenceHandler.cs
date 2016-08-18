@@ -7,6 +7,7 @@ namespace ProxerMeApi.Interfaces.Handler
         IBaseCollectionValue<IConferenceValue> GetAllConferences();
         void GetConferenceById(int conferenceId);
         void GetUserFromConverenceByConferenceId(int conferenceId);
-        void GetMessagesFromConferenceByConferenceId(int conferenceId);
+        IBaseCollectionValue<IConferenceMessageValue> GetMessagesFromConferenceByConferenceId(int conferenceId);
+        void SetMessage(int conferenceId, string message);
     }
 }

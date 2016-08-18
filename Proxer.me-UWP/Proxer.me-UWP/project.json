@@ -1,7 +1,9 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Template10": "1.1.11"
+    "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
+    "Template10": "1.1.11",
+    "WindowsStateTriggers": "1.1.0"
   },
   "frameworks": {
     "uap10.0": {}

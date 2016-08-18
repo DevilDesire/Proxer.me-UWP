@@ -84,7 +84,7 @@
                 </StackPanel>
             </controls:HamburgerButtonInfo>
             <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:MainPage"
+                                          PageType="views:TestPage"
                                           AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"

@@ -6,6 +6,11 @@
     xmlns:common="using:Template10.Common"
     RequestedTheme="Light">
     <Application.Resources>
-        <ResourceDictionary Source="Styles\Custom.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Custom.xaml"/>
+                <ResourceDictionary Source="Styles/ConferencesStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </common:BootStrapper>

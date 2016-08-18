@@ -1,31 +1,25 @@
 ﻿<Page
-    x:Class="Proxer.me_UWP.Views.ConferencesPage"
+    x:Class="Proxer.me_UWP.Views.TestPage"
     x:Name="Conferences"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Proxer.me_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:utils="using:Proxer.me_UWP.Utils"
+    xmlns:viewModels="using:Proxer.me_UWP.ViewModels"
     xmlns:controls="using:Template10.Controls"
-    xmlns:vm="using:Proxer.me_UWP.ViewModels"
-    xmlns:converter="using:Proxer.me_UWP.Utils"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:tools="using:DevilDesireDevLib.Implementation.Tools"
-    xmlns:wrapper="using:ProxerMeApi.Implementation.Wrapper"
-    xmlns:controls1="using:DevilDesireDevLib.Implementation.Controls"
+    xmlns:myControls="using:DevilDesireDevLib.Implementation.Controls"
     mc:Ignorable="d">
-    <Page.Resources>
-        <converter:UnixTimestampToStringConverter x:Key="UnixTimestampToStringConverter"/>
-    </Page.Resources>
     <Page.DataContext>
-        <vm:ConferencesPageViewModel x:Name="ConferencesPageViewModel"/>
+        <viewModels:ConferencesPageViewModel x:Name="ConferencesPageViewModel"/>
     </Page.DataContext>
     <RelativePanel Background="{StaticResource DefaultColorBackground}">
         <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
                                  RelativePanel.AlignRightWithPanel="True"
                                  RelativePanel.AlignTopWithPanel="True" Text="Konferenzen">
         </controls:PageHeader>
-        <controls1:MasterDetailsView x:Name="MasterList"
+        <myControls:MasterDetailsView x:Name="MasterList"
                                       RelativePanel.Below="pageHeader"
                                       RelativePanel.AlignLeftWithPanel="True"
                                       RelativePanel.AlignRightWithPanel="True"
@@ -40,7 +34,7 @@
                                       ItemsSource="{x:Bind ConferencesPageViewModel.ConferenceCollectionValues.Data, Mode=OneWay}"
                                       SelectedItem="{x:Bind ConferencesPageViewModel.Selected, Mode=TwoWay}"
                                       >
-
-        </controls1:MasterDetailsView>
+            
+        </myControls:MasterDetailsView>
     </RelativePanel>
 </Page>

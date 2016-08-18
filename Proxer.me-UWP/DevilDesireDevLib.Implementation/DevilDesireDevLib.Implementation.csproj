@@ -107,18 +107,23 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behavior\ScrollToBottomBehavior.cs" />
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MasterDetailsView.cs" />
     <Compile Include="Controls\PullToRefreshListView.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\IntToVisibilityConverter.cs" />
     <Compile Include="Converter\LocalPathToImageConverter.cs" />
     <Compile Include="Converter\UnixTimestampToStringConverter.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\MessageDialogExtensions.cs" />
     <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\VisualTreeHelperExtensions.cs" />
     <Compile Include="Networking\Network.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\GridUtils.cs" />
     <EmbeddedResource Include="Properties\DevilDesireDevLib.Implementation.rd.xml" />
   </ItemGroup>
   <ItemGroup>

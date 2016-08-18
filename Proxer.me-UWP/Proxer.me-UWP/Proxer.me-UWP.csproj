@@ -107,6 +107,9 @@
     <Compile Include="Views\Busy.xaml.cs">
       <DependentUpon>Busy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConferenceMessagesPage.xaml.cs">
+      <DependentUpon>ConferenceMessagesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConferencesPage.xaml.cs">
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
     </Compile>
     <Compile Include="Views\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +156,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Styles\ConferencesStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Busy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConferenceMessagesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,8 +202,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevilDesireDevLib.Implementation\DevilDesireDevLib.Implementation.csproj">
+      <Project>{97c3ebfa-a13c-4e32-a696-ea566885b8e9}</Project>
+      <Name>DevilDesireDevLib.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevilDesireDevLib.Interfaces\DevilDesireDevLib.Interfaces.csproj">
+      <Project>{0f3f5466-749a-4341-874c-a2ce92ad0fd6}</Project>
+      <Name>DevilDesireDevLib.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProxerMeApi.Implementation\ProxerMeApi.Implementation.csproj">
       <Project>{A793E87B-48ED-4048-9119-FEFC284B0C40}</Project>
       <Name>ProxerMeApi.Implementation</Name>
@@ -197,6 +224,11 @@
       <Project>{D271D961-DD4A-432A-9EEB-97CD216D6361}</Project>
       <Name>ProxerMeApi.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

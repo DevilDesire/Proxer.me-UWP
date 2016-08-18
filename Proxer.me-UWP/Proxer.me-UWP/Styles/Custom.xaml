@@ -10,6 +10,7 @@
     <Color x:Key="ContrastColor">White</Color>
     <Color x:Key="SystemAccentColor">Firebrick</Color>
     <SolidColorBrush x:Key="DefaultColorBackground" Color="#FF1A1A1A" />
+    <SolidColorBrush x:Key="DefaultColorForText" Color="White" />
 
     <ResourceDictionary.ThemeDictionaries>
 

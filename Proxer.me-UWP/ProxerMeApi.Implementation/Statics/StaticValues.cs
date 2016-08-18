@@ -7,5 +7,6 @@ namespace ProxerMeApi.Implementation.Statics
         public static CookieContainer CookieContainer { get; set; }
         public static string ApiVersion { get; set; }
         public static string ApiToken { get; set; }
+        public static int UserId { get; set; }
     }
 }
