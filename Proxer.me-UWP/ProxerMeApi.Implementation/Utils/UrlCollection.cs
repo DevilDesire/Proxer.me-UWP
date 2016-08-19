@@ -30,5 +30,11 @@
         public static string ConferencesSetUnfavourUrl = "https://proxer.me/api/{0}/messenger/setunfavour";
 
         #endregion
+
+        #region Anime Manga
+
+        public static string AnimeMangaGetEntryUrl = "https://proxer.me/api/{0}/info/entry";
+
+        #endregion
     }
 }

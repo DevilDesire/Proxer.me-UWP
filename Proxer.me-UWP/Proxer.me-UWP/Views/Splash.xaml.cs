@@ -10,6 +10,7 @@ namespace Proxer.me_UWP.Views
         {
             this.InitializeComponent();
             Window.Current.SizeChanged += (s, e) => Resize(splashScreen);
+            Resize(splashScreen);
         }
 
         private void Resize(SplashScreen splashScreen)

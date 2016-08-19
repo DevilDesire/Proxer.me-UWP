@@ -98,17 +98,18 @@
     <Compile Include="Base\ProxerMeBase.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Utils\Converters.cs" />
+    <Compile Include="ViewModels\AnimeDetailPageViewModel.cs" />
     <Compile Include="ViewModels\ConferencesPageViewModel.cs" />
     <Compile Include="ViewModels\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="Views\AnimeDetailsPage.xaml.cs">
+      <DependentUpon>AnimeDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Busy.xaml.cs">
       <DependentUpon>Busy.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ConferenceMessagesPage.xaml.cs">
-      <DependentUpon>ConferenceMessagesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConferencesPage.xaml.cs">
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
@@ -141,6 +142,8 @@
     <None Include="Proxer.me-UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\FSK\fsk12.png" />
+    <Content Include="Assets\FSK\violence.png" />
     <Content Include="Assets\Logos\proxer135px.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -166,15 +169,15 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Views\AnimeDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BlankPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Busy.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ConferenceMessagesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +233,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

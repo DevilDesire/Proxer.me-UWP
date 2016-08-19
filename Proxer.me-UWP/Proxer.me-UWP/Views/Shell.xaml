@@ -11,106 +11,64 @@
 
     <controls:HamburgerMenu x:Name="RootHamburgerMenu">
         <controls:HamburgerMenu.PrimaryButtons>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:NewsPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="News"/>
+                    <FontIcon Width="48" Height="48" Glyph="&#xE8F3;"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="News"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:MainPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Anime"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Anime"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:MainPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Manga"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Manga"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:ConferencesPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ConferencesPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="User-CP"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="User-CP"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:MainPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Forum"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Forum"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:MainPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Chat"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Chat"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
-            <controls:HamburgerButtonInfo ClearHistory="True"
-                                          PageType="views:TestPage"
-                                          AutomationProperties.Name="Proxer">
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TestPage" AutomationProperties.Name="Proxer">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Read"/>
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Rezensionen"/>
+                    <SymbolIcon Width="48" Height="48" Symbol="Read"/>
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Rezensionen"/>
+                </StackPanel>
+            </controls:HamburgerButtonInfo>
+            <controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TestPage" AutomationProperties.Name="Proxer">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Width="48" Height="48" Glyph="&#xE77F;" />
+                    <TextBlock Text="TestPage" Margin="12,0,0,0" VerticalAlignment="Center" />
                 </StackPanel>
             </controls:HamburgerButtonInfo>
 
         </controls:HamburgerMenu.PrimaryButtons>
         <controls:HamburgerMenu.SecondaryButtons>
-            <controls:HamburgerButtonInfo x:Name="SettingsButton"
-                                          PageParameter="0"
-                                          PageType="views:SettingsPage">
+            <controls:HamburgerButtonInfo x:Name="SettingsButton" PageParameter="0" PageType="views:SettingsPage">
                 <controls:HamburgerButtonInfo.NavigationTransitionInfo>
                     <SuppressNavigationTransitionInfo />
                 </controls:HamburgerButtonInfo.NavigationTransitionInfo>
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Height="48"
-                                Width="48"
-                                Symbol="Setting" />
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Settings"/>
+                <StackPanel Orientation="Horizontal"> 
+                    <SymbolIcon Height="48" Width="48" Symbol="Setting" />
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Settings"/>
                 </StackPanel>
             </controls:HamburgerButtonInfo>
         </controls:HamburgerMenu.SecondaryButtons>

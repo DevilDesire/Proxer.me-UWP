@@ -44,8 +44,12 @@
                     <DataTemplate x:Key="MeUnderYou">
                         <Grid Margin="30, 30, 5, 0" tools:GridUtils.RowDefinitions=",,">
                             <Rectangle Fill="#BF8B0000" Grid.RowSpan="2"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="0" TextTrimming="CharacterEllipsis" Text="{Binding Username, Mode=TwoWay}" FontWeight="Bold" Margin="5,0"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="1" Margin="5,5"/>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="0" TextTrimming="CharacterEllipsis" FontWeight="Bold" Margin="5,0">
+                                    <Run Text="{Binding Username, Mode=TwoWay}" />
+                                    <Run Text="   "/>
+                                    <Run Text="{Binding Timestamp, Converter={StaticResource UnixTimestampToStringConverter}, Mode=TwoWay}" Foreground="Gray" FontSize="10"/>
+                                </TextBlock>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="1" Margin="5,5"/>
                             <Path Data="m 0,0 l 16,0 l 0,16 l -16,-16" Fill="#BF8B0000" Margin="0,0,5,0" HorizontalAlignment="Right" Grid.Row="2"/>
                         </Grid>
                     </DataTemplate>
@@ -53,22 +57,34 @@
                         <Grid Margin="5, 0, 30, 0" tools:GridUtils.RowDefinitions=",,">
                             <Path Data="m 0,0 l 0,16 l 16,0 l -16,-16" Fill="#BFC70C0C" Margin="5,0,0,0" HorizontalAlignment="Left"/>
                             <Rectangle Fill="#BFC70C0C" Grid.Row="1" Grid.RowSpan="2"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="1" TextTrimming="CharacterEllipsis" Text="{Binding Username, Mode=TwoWay}" FontWeight="Bold" Margin="5,0"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="2" Margin="5,5"/>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="1" TextTrimming="CharacterEllipsis" FontWeight="Bold" Margin="5,0">
+                                    <Run Text="{Binding Username, Mode=TwoWay}" />
+                                    <Run Text="   "/>
+                                    <Run Text="{Binding Timestamp, Converter={StaticResource UnixTimestampToStringConverter}, Mode=TwoWay}" Foreground="Gray" FontSize="10"/>
+                                </TextBlock>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="2" Margin="5,5"/>
                         </Grid>
                     </DataTemplate>
                     <DataTemplate x:Key="YouUnderYou">
                         <Grid Margin="5, 15, 30, 0" tools:GridUtils.RowDefinitions=",,">
                             <Path Data="m 0,0 l 0,16 l 16,0 l -16,-16" Fill="#BFC70C0C" Margin="5,0,0,0" HorizontalAlignment="Left"/>
                             <Rectangle Fill="#BFC70C0C" Grid.Row="1" Grid.RowSpan="2"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="1" TextTrimming="CharacterEllipsis" Text="{Binding Username, Mode=TwoWay}" FontWeight="Bold" Margin="5,0"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="2" Margin="5,5"/>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="1" TextTrimming="CharacterEllipsis" FontWeight="Bold" Margin="5,0">
+                                    <Run Text="{Binding Username, Mode=TwoWay}" />
+                                    <Run Text="   "/>
+                                    <Run Text="{Binding Timestamp, Converter={StaticResource UnixTimestampToStringConverter}, Mode=TwoWay}" Foreground="Gray" FontSize="10"/>
+                                </TextBlock>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="2" Margin="5,5"/>
                         </Grid>
                     </DataTemplate>
                     <DataTemplate x:Key="MeUnderMe">
                         <Grid Margin="30, 15, 5, 0" tools:GridUtils.RowDefinitions=",,">
                             <Rectangle Fill="#BF8B0000" Grid.RowSpan="2"/>
-                            <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="0" TextTrimming="CharacterEllipsis" Text="{Binding Username, Mode=TwoWay}" FontWeight="Bold" Margin="5,0"/>
+                                <TextBlock Foreground="{StaticResource DefaultColorForText}" Grid.Row="0" TextTrimming="CharacterEllipsis" FontWeight="Bold" Margin="5,0">
+                                    <Run Text="{Binding Username, Mode=TwoWay}" />
+                                    <Run Text="   "/>
+                                    <Run Text="{Binding Timestamp, Converter={StaticResource UnixTimestampToStringConverter}, Mode=TwoWay}" Foreground="Gray" FontSize="10"/>
+                                </TextBlock>
                             <TextBlock Foreground="{StaticResource DefaultColorForText}" Text="{Binding Message, Mode=TwoWay}" TextWrapping="Wrap" Grid.Row="1" Margin="5,5"/>
                             <Path Data="m 0,0 l 16,0 l 0,16 l -16,-16" Fill="#BF8B0000" Margin="0,0,5,0" HorizontalAlignment="Right" Grid.Row="2"/>
                         </Grid>

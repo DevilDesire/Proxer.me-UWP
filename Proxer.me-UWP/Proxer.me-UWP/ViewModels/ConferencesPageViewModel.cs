@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using Proxer.me_UWP.Base;
 using ProxerMeApi.Implementation.Values;
@@ -16,10 +17,15 @@ namespace Proxer.me_UWP.ViewModels
 {
     public class ConferencesPageViewModel : ViewModelBase
     {
+        private DispatcherTimer m_CheckForNewMessages;
         public ConferencesPageViewModel()
         {
             ConferenceCollectionValues = new BaseCollectionValue<IConferenceValue>();
+            m_CheckForNewMessages = new DispatcherTimer {Interval = new TimeSpan(0, 0, 30)};
+            m_CheckForNewMessages.Tick += CheckForNewMessages_Tick;
         }
+
+        #region Overrides
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
@@ -53,10 +59,7 @@ namespace Proxer.me_UWP.ViewModels
             await Task.CompletedTask;
         }
 
-        public void LoadMessagesFromConference(int conferenceId)
-        {
-            ConferenceMessageValues = new ObservableCollection<IConferenceMessageValue>(ProxerMeBase.ConferenceHandler.GetMessagesFromConferenceByConferenceId(conferenceId).Data);
-        }
+        #endregion
 
         #region Methods
 
@@ -114,6 +117,19 @@ namespace Proxer.me_UWP.ViewModels
             //Selected = ConferenceCollectionValues.Data[previous];
         }
 
+        public void LoadMessagesFromConference(int conferenceId)
+        {
+            ConferenceMessageValues = new ObservableCollection<IConferenceMessageValue>(ProxerMeBase.ConferenceHandler.GetMessagesFromConferenceByConferenceId(conferenceId).Data);
+        }
+
+        private void CheckForNewMessages_Tick(object sender, object e)
+        {
+            if (Selected != null)
+            {
+                LoadMessagesFromConference(((IConferenceValue)Selected).Id);
+            }
+        }
+
         #endregion
 
         #region VALUES
@@ -167,6 +183,7 @@ namespace Proxer.me_UWP.ViewModels
                 {
                     LoadMessagesFromConference(message.Id);
                     IsDetailsLoading = false;
+                    m_CheckForNewMessages.Start();
                 }, 1000);
             }
         }
@@ -225,22 +242,23 @@ namespace Proxer.me_UWP.ViewModels
 
         public DelegateCommand SendCommand => m_SendCommand ?? (m_SendCommand = new DelegateCommand(async () =>
         {
-            if (!string.IsNullOrEmpty(TextMessage))
+            if (!string.IsNullOrEmpty(TextMessage) && Selected != null)
             {
-                int confId = (Selected as IConferenceValue).Id;
+                IConferenceValue conferenceValue = (IConferenceValue)Selected;
+
                 try
                 {
-                    ProxerMeBase.ConferenceHandler.SetMessage(confId, TextMessage);
+                    m_CheckForNewMessages.Stop();
+                    ProxerMeBase.ConferenceHandler.SetMessage(conferenceValue.Id, TextMessage);
                     TextMessage = string.Empty;
+                    LoadMessagesFromConference(conferenceValue.Id);
+                    m_CheckForNewMessages.Start();
                 }
                 catch (Exception)
                 {
                     await new MessageDialog("Beim Senden ist es problem aufgetreten, bitte versuchen Sie es später noch einmal").ShowAsync();
                 }
-                
-
             }
-            
         }));
 
         #endregion

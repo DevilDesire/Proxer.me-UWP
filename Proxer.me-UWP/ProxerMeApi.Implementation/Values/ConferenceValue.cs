@@ -25,7 +25,8 @@ namespace ProxerMeApi.Implementation.Values
             }
             set
             {
-                m_Image = string.Format("http://cdn.proxer.me/avatar/tn/{0}", value);
+                string imageString = value.Replace("avatar:","");
+                m_Image = string.Format("http://cdn.proxer.me/avatar/tn/{0}", imageString);
             }
         }
     }

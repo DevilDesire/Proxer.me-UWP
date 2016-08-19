@@ -11,30 +11,9 @@
     xmlns:controls="using:Template10.Controls"
     xmlns:myControls="using:DevilDesireDevLib.Implementation.Controls"
     mc:Ignorable="d">
-    <Page.DataContext>
-        <viewModels:ConferencesPageViewModel x:Name="ConferencesPageViewModel"/>
-    </Page.DataContext>
+
     <RelativePanel Background="{StaticResource DefaultColorBackground}">
-        <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
-                                 RelativePanel.AlignRightWithPanel="True"
-                                 RelativePanel.AlignTopWithPanel="True" Text="Konferenzen">
-        </controls:PageHeader>
-        <myControls:MasterDetailsView x:Name="MasterList"
-                                      RelativePanel.Below="pageHeader"
-                                      RelativePanel.AlignLeftWithPanel="True"
-                                      RelativePanel.AlignRightWithPanel="True"
-                                      RelativePanel.AlignBottomWithPanel="True"
-                                      Background="{StaticResource DefaultColorBackground}"
-                                      Details="{x:Bind ConferencesPageViewModel, Mode=OneWay}"
-                                      DetailsTemplate="{StaticResource MessageDetailTemplate}"
-                                      IsDetailsLoading="{x:Bind ConferencesPageViewModel.IsDetailsLoading, Mode=OneWay}"
-                                      IsMasterLoading="{x:Bind ConferencesPageViewModel.IsMasterLoading, Mode=OneWay}"
-                                      ItemContainerStyle="{StaticResource MailListItemContainerStyle}"
-                                      ItemTemplate="{StaticResource MessageListItemTemplate}"
-                                      ItemsSource="{x:Bind ConferencesPageViewModel.ConferenceCollectionValues.Data, Mode=OneWay}"
-                                      SelectedItem="{x:Bind ConferencesPageViewModel.Selected, Mode=TwoWay}"
-                                      >
-            
-        </myControls:MasterDetailsView>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="64.6666641235352" Click="button_Click"/>
+
     </RelativePanel>
 </Page>

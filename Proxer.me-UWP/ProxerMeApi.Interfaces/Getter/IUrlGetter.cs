@@ -28,5 +28,11 @@
         string GetConferencesSetUnfavourUrl(string apiVersion);
 
         #endregion
+
+        #region Anime Manga
+
+        string GetAnimeMangaGetEntryUrl(string apiVersion);
+
+        #endregion
     }
 }

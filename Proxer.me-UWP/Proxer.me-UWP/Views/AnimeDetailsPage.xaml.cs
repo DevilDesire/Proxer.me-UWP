@@ -20,9 +20,9 @@ namespace Proxer.me_UWP.Views
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
-    public sealed partial class ConferenceMessagesPage : Page
+    public sealed partial class AnimeDetailsPage : Page
     {
-        public ConferenceMessagesPage()
+        public AnimeDetailsPage()
         {
             this.InitializeComponent();
         }

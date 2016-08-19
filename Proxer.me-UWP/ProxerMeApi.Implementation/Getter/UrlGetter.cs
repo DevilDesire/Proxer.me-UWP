@@ -97,5 +97,13 @@ namespace ProxerMeApi.Implementation.Getter
 
         #endregion
 
+        #region Anime Manga
+
+        public string GetAnimeMangaGetEntryUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetEntryUrl, apiVersion);
+        }
+
+        #endregion
     }
 }

@@ -112,11 +112,13 @@
     <Compile Include="Getter\PostParamGetter.cs" />
     <Compile Include="Getter\UrlGetter.cs" />
     <Compile Include="Getter\UserGetter.cs" />
+    <Compile Include="Handler\AnimeHandler.cs" />
     <Compile Include="Handler\ConferenceHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="ProxerMeApiBase.cs" />
     <Compile Include="Statics\StaticValues.cs" />
     <Compile Include="Utils\UrlCollection.cs" />
+    <Compile Include="Values\AnimeMangaValue.cs" />
     <Compile Include="Values\BaseCollectionValue.cs" />
     <Compile Include="Values\BaseValue.cs" />
     <Compile Include="Values\ConferenceConstants.cs" />

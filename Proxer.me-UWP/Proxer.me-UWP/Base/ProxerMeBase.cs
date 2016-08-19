@@ -9,5 +9,6 @@ namespace Proxer.me_UWP.Base
     {
         internal static INotificationGetter NotificationGetter => new NotificationGetter();
         internal static IConferenceHandler ConferenceHandler => new ConferenceHandler();
+        internal static IAnimeHandler AnimeHandler => new AnimeHandler();
     }
 }

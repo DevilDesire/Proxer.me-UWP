@@ -11,6 +11,32 @@
     <Color x:Key="SystemAccentColor">Firebrick</Color>
     <SolidColorBrush x:Key="DefaultColorBackground" Color="#FF1A1A1A" />
     <SolidColorBrush x:Key="DefaultColorForText" Color="White" />
+    <Style x:Key="PivotItemStyle1" TargetType="PivotItem">
+        <Setter Property="Background" Value="{ThemeResource PivotItemBackground}"/>
+        <Setter Property="Margin" Value="{ThemeResource PivotItemMargin}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PivotItem">
+                    <Grid Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Pivot">
+                                <VisualState x:Name="Right"/>
+                                <VisualState x:Name="Left"/>
+                                <VisualState x:Name="Center"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
     <ResourceDictionary.ThemeDictionaries>
 

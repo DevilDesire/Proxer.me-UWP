@@ -9,5 +9,6 @@ namespace ProxerMeApi.Interfaces.Getter
         Dictionary<string, string> GetBaseParams(string apiKey);
         Dictionary<string, string> GetMessagesParams(int? conferenceId, int? messageId, string apiKey);
         Dictionary<string, string> GetSetMessageParams(int conferenceId, string message, string apiKey);
+        Dictionary<string, string> GetAnimeMangaGetEntryParams(int animeMangaId, string apiKey);
     }
 }

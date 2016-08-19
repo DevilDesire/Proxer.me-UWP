@@ -57,10 +57,20 @@ namespace ProxerMeApi.Implementation.Getter
 
         public Dictionary<string, string> GetSetMessageParams(int conferenceId, string message, string apiKey)
         {
-            Dictionary<string, string> postParams = new Dictionary<string, string>();
-            postParams.Add("conference_id", conferenceId.ToString());
-            postParams.Add("text", message);
+            Dictionary<string, string> postParams = new Dictionary<string, string>
+            {
+                {"conference_id", conferenceId.ToString()},
+                {"text", message}
+            };
             AddApiToken(postParams, apiKey);
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetAnimeMangaGetEntryParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> {{"id", animeMangaId.ToString()}};
+            AddApiToken(postParams, apiKey);
+
             return postParams;
         }
     }
