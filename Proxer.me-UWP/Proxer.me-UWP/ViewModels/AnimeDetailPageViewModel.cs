@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Proxer.me_UWP.Base;
+using Proxer.me_UWP.Views;
 using ProxerMeApi.Interfaces.Values;
 using Template10.Common;
 using Template10.Mvvm;
@@ -21,10 +25,16 @@ namespace Proxer.me_UWP.ViewModels
                 BootStrapper.Current.NavigationService.GoBack();
             }
 
+            Busy.SetBusy(true, "Daten werden geladen");
             WindowWrapper.Current().Dispatcher.Dispatch(() =>
             {
-                AnimeMangaValue = ProxerMeBase.AnimeHandler.GetEntry(Convert.ToInt32(parameter));
-                
+                IAnimeMangaValue animeMangaValue = ProxerMeBase.AnimeHandler.GetEntry(Convert.ToInt32(parameter));
+                ProxerMeBase.AnimeHandler.SetNames(animeMangaValue);
+                ProxerMeBase.AnimeHandler.SetSeason(animeMangaValue);
+                ProxerMeBase.AnimeHandler.SetGroups(animeMangaValue);
+                ProxerMeBase.AnimeHandler.SetPublisher(animeMangaValue);
+                AnimeMangaValue = animeMangaValue;
+                Busy.SetBusy(false);
             }, 2000);
 
             await Task.CompletedTask;
@@ -48,11 +58,25 @@ namespace Proxer.me_UWP.ViewModels
 
         #endregion
 
+        #region Methods
+
+        #region privates
+        
+
+        #endregion
+
+        #region publics
+        
+        #endregion
+        
+        #endregion
         #region VALUES
 
         #region privates
 
         private IAnimeMangaValue m_AnimeMangaValue;
+        private SolidColorBrush m_SelectedPivotItem;
+        private SolidColorBrush m_UnselectedPivotItem;
 
         #endregion
 
@@ -62,6 +86,18 @@ namespace Proxer.me_UWP.ViewModels
         {
             get { return m_AnimeMangaValue; }
             set { Set(ref m_AnimeMangaValue, value); }
+        }
+
+        public SolidColorBrush SelectedPivotItem
+        {
+            get { return m_SelectedPivotItem; }
+            set { Set(ref m_SelectedPivotItem, value); }
+        }
+
+        public SolidColorBrush UnselectedPivotItem
+        {
+            get { return m_UnselectedPivotItem; }
+            set { Set(ref m_UnselectedPivotItem, value); }
         }
 
         #endregion

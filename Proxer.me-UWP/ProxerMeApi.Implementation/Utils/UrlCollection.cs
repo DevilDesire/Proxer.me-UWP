@@ -34,6 +34,17 @@
         #region Anime Manga
 
         public static string AnimeMangaGetEntryUrl = "https://proxer.me/api/{0}/info/entry";
+        public static string AnimeMangaGetNamesUrl = "https://proxer.me/api/{0}/info/names";
+        public static string AnimeMangaGetGateUrl = "https://proxer.me/api/{0}/info/gate";
+        public static string AnimeMangaGetLanguageUrl = "https://proxer.me/api/{0}/info/lang";
+        public static string AnimeMangaGetSeasonUrl = "https://proxer.me/api/{0}/info/season";
+        public static string AnimeMangaGetGroupsUrl = "https://proxer.me/api/{0}/info/groups";
+        public static string AnimeMangaGetPublisherUrl = "https://proxer.me/api/{0}/info/publisher";
+        public static string AnimeMangaGetListInfoUrl = "https://proxer.me/api/{0}/info/listinfo";
+        public static string AnimeMangaGetCommentsUrl = "https://proxer.me/api/{0}/info/comments";
+        public static string AnimeMangaGetReleationsUrl = "https://proxer.me/api/{0}/info/relations";
+        public static string AnimeMangaGetEntryTagsUrl = "https://proxer.me/api/{0}/info/entrytags";
+        public static string AnimeMangaSetUserinfoUrl = "https://proxer.me/api/{0}/info/setuserinfo";
 
         #endregion
     }

@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Proxer.me_UWP.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:proxerConverter="using:ProxerMeApi.Implementation.Utils.ProxerConverter"
     mc:Ignorable="d">
+    <Page.Resources>
+        <proxerConverter:LicenseIntegerToStringConverter x:Key="LicenseIntegerToStringConverter"/>
+        <proxerConverter:StateIntegerToStringConverter x:Key="StateIntegerToStringConverter"/>
+        <proxerConverter:SeasonToStringConverter x:Key="SeasonToStringConverter" />
+        <proxerConverter:FskToImageListConverter x:Key="FskToImageListConverter"/>
+        <proxerConverter:LanguageToImageConverter x:Key="LanguageToImageConverter" />
+    </Page.Resources>
     <Page.DataContext>
         <vm:AnimeDetailPageViewModel x:Name="AnimeDetailPageViewModel" />
     </Page.DataContext>
@@ -18,14 +26,14 @@
                                  RelativePanel.AlignTopWithPanel="True" Text="Anime Details">
         </controls:PageHeader>
         <Pivot RelativePanel.Below="pageHeader" RelativePanel.AlignBottomWithPanel="True">
-            <PivotItem Header="Details" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" DataContext="{Binding AnimeMangaValue}" Style="{StaticResource PivotItemStyle1}" >
-                <ScrollViewer Margin="20,0">
+            <PivotItem Header="Details" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" DataContext="{Binding AnimeMangaValue}">
+                <ScrollViewer>
                     <RelativePanel>
                         <Image x:Name="CoverImage" Height="250" Width="250" Stretch="Uniform" Source="{Binding ImageUrl}" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
-                        <Grid x:Name="DetailsHolder" Margin="0,10" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="CoverImage" >
+                        <Grid x:Name="DetailsHolder" Margin="20,10" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="CoverImage" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -39,28 +47,83 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Original Titel" Grid.Column="0" Grid.Row="0" Foreground="White"/>
-                            <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Foreground="White"/>
-                            <TextBlock Text="Japanischer Titel" Grid.Column="0" Grid.Row="1" Foreground="White"/>
-                            <TextBlock Text="" Grid.Column="1" Grid.Row="1" Foreground="White"/>
-                            <TextBlock Text="Genre" Grid.Column="0" Grid.Row="2" Foreground="White" />
-                            <TextBlock Text="{Binding Genre}" Grid.Column="1" Grid.Row="2" Foreground="White" TextWrapping="WrapWholeWords"/>
-                            <TextBlock Text="Tags" Grid.Column="0" Grid.Row="3" Foreground="White"/>
-                            <TextBlock Text="{Binding Tags}" Grid.Column="1" Grid.Row="3" Foreground="White"/>
-                            <TextBlock Text="PSK" Grid.Column="0" Grid.Row="4" Foreground="White"/>
-                            <TextBlock Text="{Binding Fsk}" Grid.Column="1" Grid.Row="4" Foreground="White"/>
-                            <TextBlock Text="Season" Grid.Column="0" Grid.Row="5" Foreground="White"/>
-                            <TextBlock Text="{Binding Season}" Grid.Column="1" Grid.Row="5" Foreground="White"/>
-                            <TextBlock Text="Status" Grid.Column="0" Grid.Row="6" Foreground="White"/>
-                            <TextBlock Text="{Binding Status}" Grid.Column="1" Grid.Row="6" Foreground="White"/>
-                            <TextBlock Text="Gruppen" Grid.Column="0" Grid.Row="7" Foreground="White"/>
-                            <TextBlock Text="{Binding Gruppen}" Grid.Column="1" Grid.Row="7" Foreground="White"/>
-                            <TextBlock Text="Industrie" Grid.Column="0" Grid.Row="8" Foreground="White"/>
-                            <TextBlock Text="{Binding Industrie}" Grid.Column="1" Grid.Row="8" Foreground="White"/>
-                            <TextBlock Text="Lizenz" Grid.Column="0" Grid.Row="9" Foreground="White"/>
-                            <TextBlock Text="{Binding License}" Grid.Column="1" Grid.Row="9" Foreground="White"/>
+                            <TextBlock Text="Original Titel" Grid.Column="0" Grid.Row="0" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Japanischer Titel" Grid.Column="0" Grid.Row="1" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Genre" Grid.Column="0" Grid.Row="2" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Tags" Grid.Column="0" Grid.Row="3" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="PSK" Grid.Column="0" Grid.Row="4" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Season" Grid.Column="0" Grid.Row="5" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Status" Grid.Column="0" Grid.Row="6" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Gruppen" Grid.Column="0" Grid.Row="7" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Industrie" Grid.Column="0" Grid.Row="8" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="Lizenz" Grid.Column="0" Grid.Row="9" Foreground="White" Margin="0,5"/>
+                            <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>
+                            <TextBlock Text="{Binding JName, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>
+                            <TextBlock Text="{Binding Genre}" Grid.Column="1" Grid.Row="2" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>
+                            <TextBlock Text="{Binding Tags}" Grid.Column="1" Grid.Row="3" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>
+                            <!--<TextBlock Text="{Binding Fsk}" Grid.Column="1" Grid.Row="4" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>-->
+                            <ListView Grid.Column="1" Grid.Row="4" Margin="0,5" ItemsSource="{Binding Fsk, Converter={StaticResource FskToImageListConverter}}" SelectionMode="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}" Height="50" Width="50"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                            <TextBlock Text="{Binding Season, Mode=TwoWay, Converter={StaticResource SeasonToStringConverter}}" Grid.Column="1" Grid.Row="5" Foreground="White" TextWrapping="WrapWholeWords" Margin="0,5"/>
+                            <TextBlock Text="{Binding State, Converter={StaticResource StateIntegerToStringConverter}}" Grid.Column="1" Grid.Row="6" Foreground="White" Margin="0,5"/>
+                            <StackPanel Grid.Column="1" Grid.Row="7" Margin="0,5" HorizontalAlignment="Stretch">
+                                <TextBlock Text="Proxer.Me bietet keinerlei Downloads an. Diesbezüglich leiten wir dich an die betroffenen Sub- und Scanlationgruppen weiter." Foreground="White" TextWrapping="WrapWholeWords"/>
+                                <ListView ItemsSource="{Binding Groups}" SelectionMode="None" HorizontalAlignment="Stretch">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                <Image Source="{Binding Country, Converter={StaticResource LanguageToImageConverter}}" Height="20" Stretch="Uniform"/>
+                                                <TextBlock Text="{Binding Name}" Foreground="White" TextWrapping="WrapWholeWords" Margin="5,0,0,0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </StackPanel>
+                            <ListView ItemsSource="{Binding Publisher}" SelectionMode="None" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="8" Margin="0,5">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                            <Image Source="{Binding Country, Converter={StaticResource LanguageToImageConverter}}" Height="20" Stretch="Uniform"/>
+                                            <TextBlock Text="{Binding Name}" Foreground="White" TextWrapping="WrapWholeWords" Margin="5,0,0,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                            </ListView>
+                            <TextBlock Text="{Binding License, Converter={StaticResource LicenseIntegerToStringConverter}}" Grid.Column="1" Grid.Row="9" Foreground="White" Margin="0,5"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8"/>
+                            <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9"/>
                         </Grid>
-                        <TextBlock Text="{Binding Description}" Foreground="White" RelativePanel.Below="DetailsHolder" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" TextWrapping="WrapWholeWords" />
+
+                        <Rectangle Height="1" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" RelativePanel.Below="DetailsHolder" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="20,0"/>
+                        <TextBlock Text="{Binding Description}" Foreground="White" RelativePanel.Below="DetailsHolder" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" TextWrapping="WrapWholeWords" Margin="20,5"/>
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>

@@ -13,7 +13,7 @@
     mc:Ignorable="d">
 
     <RelativePanel Background="{StaticResource DefaultColorBackground}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="64.6666641235352" Click="button_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="64.6666641235352" Click="button_Click" Margin="109,253,-109.333,-253"/>
 
     </RelativePanel>
 </Page>

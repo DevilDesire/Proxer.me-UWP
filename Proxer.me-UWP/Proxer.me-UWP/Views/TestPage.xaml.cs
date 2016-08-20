@@ -18,6 +18,7 @@ namespace Proxer.me_UWP.Views
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //BootStrapper.Current.NavigationService.Navigate(typeof(AnimeDetailsPage), 894);
             BootStrapper.Current.NavigationService.Navigate(typeof(AnimeDetailsPage), 12260);
         }
     }

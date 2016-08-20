@@ -10,5 +10,6 @@ namespace ProxerMeApi.Implementation
         protected INetwork Network => new Network();
         protected IUrlGetter UrlGetter => new UrlGetter();
         protected IPostParamGetter PostParamGetter => new PostParamGetter();
+        protected IAnimeMangaGetter AnimeMangaGetter => new AnimeMangaGetter();
     }
 }

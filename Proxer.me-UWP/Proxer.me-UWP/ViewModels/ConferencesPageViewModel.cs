@@ -21,7 +21,7 @@ namespace Proxer.me_UWP.ViewModels
         public ConferencesPageViewModel()
         {
             ConferenceCollectionValues = new BaseCollectionValue<IConferenceValue>();
-            m_CheckForNewMessages = new DispatcherTimer {Interval = new TimeSpan(0, 0, 30)};
+            m_CheckForNewMessages = new DispatcherTimer {Interval = new TimeSpan(0, 0, 15)};
             m_CheckForNewMessages.Tick += CheckForNewMessages_Tick;
         }
 

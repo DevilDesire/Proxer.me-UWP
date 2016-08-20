@@ -73,5 +73,37 @@ namespace ProxerMeApi.Implementation.Getter
 
             return postParams;
         }
+
+        public Dictionary<string, string> GetAnimeMangaGetSeasonParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { {"id", animeMangaId.ToString()}};
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetAnimeMangaGetNamesParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { { "id", animeMangaId.ToString() } };
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetAnimeMangaGetGroupsParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { { "id", animeMangaId.ToString() } };
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetAnimeMangaGetPublisherParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { { "id", animeMangaId.ToString() } };
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
     }
 }

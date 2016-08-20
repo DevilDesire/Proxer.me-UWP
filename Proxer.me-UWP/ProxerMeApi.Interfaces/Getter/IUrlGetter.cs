@@ -32,6 +32,11 @@
         #region Anime Manga
 
         string GetAnimeMangaGetEntryUrl(string apiVersion);
+        string GetAnimeMangaGetSeasonUrl(string apiVersion);
+        string GetAnimeMangaGetPublisherUrl(string apiVersion);
+        string GetAnimeMangaGetLanguageUrl(string apiVersion);
+        string GetAnimeMangaGetNamesUrl(string apiVersion);
+        string GetAnimeMangaGetGroupsUrl(string apiVersion);
 
         #endregion
     }

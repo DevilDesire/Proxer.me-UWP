@@ -104,6 +104,31 @@ namespace ProxerMeApi.Implementation.Getter
             return string.Format(UrlCollection.AnimeMangaGetEntryUrl, apiVersion);
         }
 
+        public string GetAnimeMangaGetSeasonUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetSeasonUrl, apiVersion);
+        }
+
+        public string GetAnimeMangaGetPublisherUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetPublisherUrl, apiVersion);
+        }
+
+        public string GetAnimeMangaGetLanguageUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetLanguageUrl, apiVersion);
+        }
+
+        public string GetAnimeMangaGetNamesUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetNamesUrl, apiVersion);
+        }
+
+        public string GetAnimeMangaGetGroupsUrl(string apiVersion)
+        {
+            return string.Format(UrlCollection.AnimeMangaGetGroupsUrl, apiVersion);
+        }
+
         #endregion
     }
 }

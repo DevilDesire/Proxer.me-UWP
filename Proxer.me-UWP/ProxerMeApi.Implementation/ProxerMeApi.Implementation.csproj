@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Getter\AnimeMangaGetter.cs" />
     <Compile Include="Getter\ConferenceGetter.cs" />
     <Compile Include="Getter\NotificationGetter.cs" />
     <Compile Include="Getter\PostParamGetter.cs" />
@@ -117,7 +118,18 @@
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="ProxerMeApiBase.cs" />
     <Compile Include="Statics\StaticValues.cs" />
+    <Compile Include="Utils\ProxerConverter\CommentStateIntegerToStringConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\FskToImageListConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\LanguageToImageConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\LicenseIntegerToStringConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\SeasonToStringConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\StateIntegerToStringConverter.cs" />
     <Compile Include="Utils\UrlCollection.cs" />
+    <Compile Include="Values\AnimeMangaGroupValue.cs" />
+    <Compile Include="Values\AnimeMangaLanguageValue.cs" />
+    <Compile Include="Values\AnimeMangaNameValue.cs" />
+    <Compile Include="Values\AnimeMangaPublisherValue.cs" />
+    <Compile Include="Values\AnimeMangaSeasonValue.cs" />
     <Compile Include="Values\AnimeMangaValue.cs" />
     <Compile Include="Values\BaseCollectionValue.cs" />
     <Compile Include="Values\BaseValue.cs" />

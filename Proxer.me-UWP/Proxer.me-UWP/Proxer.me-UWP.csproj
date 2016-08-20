@@ -142,8 +142,19 @@
     <None Include="Proxer.me-UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\FSK\bad_language.png" />
+    <Content Include="Assets\FSK\fear.png" />
+    <Content Include="Assets\FSK\fsk0.png" />
     <Content Include="Assets\FSK\fsk12.png" />
+    <Content Include="Assets\FSK\fsk16.png" />
+    <Content Include="Assets\FSK\fsk18.png" />
+    <Content Include="Assets\FSK\fsk6.png" />
+    <Content Include="Assets\FSK\sex.png" />
     <Content Include="Assets\FSK\violence.png" />
+    <Content Include="Assets\Language\english.gif" />
+    <Content Include="Assets\Language\german.gif" />
+    <Content Include="Assets\Language\japanese.gif" />
+    <Content Include="Assets\Language\misc.gif" />
     <Content Include="Assets\Logos\proxer135px.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

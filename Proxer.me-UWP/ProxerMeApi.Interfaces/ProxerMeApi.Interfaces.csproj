@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ConversationSide.cs" />
+    <Compile Include="Getter\IAnimeMangaGetter.cs" />
     <Compile Include="Getter\INotificationGetter.cs" />
     <Compile Include="Getter\IPostParamGetter.cs" />
     <Compile Include="Getter\IUrlGetter.cs" />
@@ -118,6 +119,11 @@
     <Compile Include="Handler\IUserHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token\IApiToken.cs" />
+    <Compile Include="Values\IAnimeMangaGroupValue.cs" />
+    <Compile Include="Values\IAnimeMangaLanguageValue.cs" />
+    <Compile Include="Values\IAnimeMangaNameValue.cs" />
+    <Compile Include="Values\IAnimeMangaPublisherValue.cs" />
+    <Compile Include="Values\IAnimeMangaSeasonValue.cs" />
     <Compile Include="Values\IAnimeMangaValue.cs" />
     <Compile Include="Values\IBaseCollectionValue.cs" />
     <Compile Include="Values\IBaseValue.cs" />
@@ -125,7 +131,6 @@
     <Compile Include="Values\IConferenceMessageValue.cs" />
     <Compile Include="Values\IConferenceValue.cs" />
     <Compile Include="Values\IInfoValue.cs" />
-    <Compile Include="Values\ILanguageValue.cs" />
     <Compile Include="Values\INewsValue.cs" />
     <Compile Include="Values\IUserLoginValue.cs" />
     <EmbeddedResource Include="Properties\ProxerMeApi.Interfaces.rd.xml" />
