@@ -9,5 +9,10 @@ namespace ProxerMeApi.Interfaces.Getter
         List<IAnimeMangaPublisherValue> GetPublisher(int animeMangaId);
         List<IAnimeMangaNameValue> GetNames(int animeMangaId);
         List<IAnimeMangaGroupValue> GetGroups(int animeMangaId);
+        List<IStreamValue> GetProxerStreams(int animeMangaId, string episode, string language);
+        List<IStreamValue> GetStreams(int animeMangaId, string episode, string language);
+        void IncrementStreamCount(int streamId);
+        IAnimeMangaListInfoValue<IEpisodeValue> GetListinfo(int animeMangaId);
+        List<IAnimeMangaKommentarValue> GetComments(int animeMangaId);
     }
 }

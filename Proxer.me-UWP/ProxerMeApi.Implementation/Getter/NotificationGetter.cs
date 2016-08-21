@@ -12,6 +12,7 @@ namespace ProxerMeApi.Implementation.Getter
         {
             string retval = Network.LoadUrlPost(UrlGetter.GetNotificationNewsUrl(apiVersion), PostParamGetter.GetNewsParams(apiKey));
             BaseCollectionValue<NewsValue> baseCollectionValue = JsonConvert.DeserializeObject<BaseCollectionValue<NewsValue>>(retval);
+            ExceptionHandler.CheckForCaptcha(baseCollectionValue.Message);
 
             return new BaseCollectionValue<INewsValue>
             {

@@ -1,4 +1,5 @@
-﻿using ProxerMeApi.Interfaces.Values;
+﻿using System.Collections.Generic;
+using ProxerMeApi.Interfaces.Values;
 
 namespace ProxerMeApi.Interfaces.Handler
 {
@@ -9,5 +10,7 @@ namespace ProxerMeApi.Interfaces.Handler
         void SetNames(IAnimeMangaValue animeMangaValue);
         void SetGroups(IAnimeMangaValue animeMangaValue);
         void SetPublisher(IAnimeMangaValue animeMangaValue);
+        IAnimeMangaListInfoValue<IEpisodeValue> GetEpisodes(int animeMangaId);
+        List<IAnimeMangaKommentarValue> GetComments(int animeMangaId);
     }
 }

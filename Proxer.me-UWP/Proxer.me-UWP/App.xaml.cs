@@ -60,6 +60,11 @@ namespace Proxer.me_UWP
             {
                 await StatusBar.GetForCurrentView().HideAsync();
             }
+
+            Application.Current.UnhandledException += Current_UnhandledException;
+            UnhandledException += Current_UnhandledException;
+            Current.UnhandledException += Current_UnhandledException;
+
             StaticValues.ApiVersion = ApplicationKeys.ApiVersion;
             StaticValues.ApiToken = ApplicationKeys.ApiTokenKey;
             StaticValues.CookieContainer = new CookieContainer();
@@ -72,6 +77,7 @@ namespace Proxer.me_UWP
                     IBaseValue<IUserLoginValue> loginInfo = new UserHandler().DoLogin(ApplicationKeys.Username, ApplicationKeys.Password, ApplicationKeys.ApiTokenKey);
                     ApplicationKeys.UserToken = loginInfo.Data.Token;
                     StaticValues.UserId = loginInfo.Data.Uid;
+                    break;
                 }
                 catch (Exception ex)
                 {
@@ -82,6 +88,7 @@ namespace Proxer.me_UWP
 
                     await new MessageDialog(ex.Message, "Problem festgestellt").ShowAsync();
                 }
+
             }
 
 
@@ -89,6 +96,12 @@ namespace Proxer.me_UWP
 
             NavigationService.Navigate(typeof(BlankPage));
             await Task.CompletedTask;
+        }
+
+        private void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            string s = e.Exception.Message;
         }
     }
 }

@@ -105,5 +105,21 @@ namespace ProxerMeApi.Implementation.Getter
 
             return postParams;
         }
+
+        public Dictionary<string, string> GetAnimeMangaGetListinfoParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { { "id", animeMangaId.ToString() } };
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
+
+        public Dictionary<string, string> GetAnimeMangaGetCommentsParams(int animeMangaId, string apiKey)
+        {
+            Dictionary<string, string> postParams = new Dictionary<string, string> { { "id", animeMangaId.ToString() } };
+            AddApiToken(postParams, apiKey);
+
+            return postParams;
+        }
     }
 }

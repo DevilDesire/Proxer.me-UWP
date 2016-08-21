@@ -14,5 +14,7 @@ namespace ProxerMeApi.Interfaces.Getter
         Dictionary<string, string> GetAnimeMangaGetNamesParams(int animeMangaId, string apiKey);
         Dictionary<string, string> GetAnimeMangaGetGroupsParams(int animeMangaId, string apiKey);
         Dictionary<string, string> GetAnimeMangaGetPublisherParams(int animeMangaId, string apiKey);
+        Dictionary<string, string> GetAnimeMangaGetListinfoParams(int animeMangaId, string apiKey);
+        Dictionary<string, string> GetAnimeMangaGetCommentsParams(int animeMangaId, string apiKey);
     }
 }

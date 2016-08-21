@@ -4,7 +4,7 @@ using DevilDesireDevLib.Interfaces;
 
 namespace DevilDesireDevLib.Implementation.Converter
 {
-    public class IntToVisibilityConverter : IConverter
+    public class CountToVisibilityConverter : IConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

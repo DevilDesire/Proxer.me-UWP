@@ -5,9 +5,14 @@
     xmlns:local="using:Proxer.me_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Template10.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource DefaultColorBackground}">
+        <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                                 RelativePanel.AlignRightWithPanel="True"
+                                 RelativePanel.AlignTopWithPanel="True" Text="Willkommen">
+        </controls:PageHeader>
         <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Assets/Logos/proxer135px.png" Stretch="None"/>
     </Grid>
 </Page>

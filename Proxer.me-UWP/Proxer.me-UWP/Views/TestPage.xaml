@@ -13,7 +13,14 @@
     mc:Ignorable="d">
 
     <RelativePanel Background="{StaticResource DefaultColorBackground}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="64.6666641235352" Click="button_Click" Margin="109,253,-109.333,-253"/>
+        <Button x:Name="button" Content="Button" Height="32" Click="button_Click" Margin="109,253,-109.333,-253" />
+        <myControls:Expander Height="78" Header="Expander" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <myControls:Expander.Content>
+                <Grid>
+                    <Button Content="Test"/>
+                </Grid>
+            </myControls:Expander.Content>
+        </myControls:Expander>
 
     </RelativePanel>
 </Page>

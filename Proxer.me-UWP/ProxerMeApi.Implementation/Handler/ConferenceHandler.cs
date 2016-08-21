@@ -15,7 +15,8 @@ namespace ProxerMeApi.Implementation.Handler
         {
             string retval = Network.LoadUrlPost(UrlGetter.GetConferencesGetConferencesUrl(StaticValues.ApiVersion), PostParamGetter.GetNewsParams(StaticValues.ApiToken), StaticValues.CookieContainer);
             BaseCollectionValue<ConferenceValue> baseValue = JsonConvert.DeserializeObject<BaseCollectionValue<ConferenceValue>>(retval);
-            
+            ExceptionHandler.CheckForCaptcha(baseValue.Message);
+
             return new BaseCollectionValue<IConferenceValue>
             {
                 Error = baseValue.Error,
@@ -38,6 +39,7 @@ namespace ProxerMeApi.Implementation.Handler
         {
             string retval = Network.LoadUrlPost(UrlGetter.GetConferencesGetMessagesUrl(StaticValues.ApiVersion), PostParamGetter.GetMessagesParams(conferenceId, null, StaticValues.ApiToken), StaticValues.CookieContainer);
             BaseCollectionValue<ConferenceMessageValue> baseValue = JsonConvert.DeserializeObject<BaseCollectionValue<ConferenceMessageValue>>(retval);
+            ExceptionHandler.CheckForCaptcha(baseValue.Message);
 
             return new BaseCollectionValue<IConferenceMessageValue>
             {

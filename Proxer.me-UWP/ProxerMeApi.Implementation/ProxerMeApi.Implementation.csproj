@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handler\ExceptionHandler.cs" />
     <Compile Include="Getter\AnimeMangaGetter.cs" />
     <Compile Include="Getter\ConferenceGetter.cs" />
     <Compile Include="Getter\NotificationGetter.cs" />
@@ -117,16 +118,21 @@
     <Compile Include="Handler\ConferenceHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="ProxerMeApiBase.cs" />
+    <Compile Include="SpezifischeExceptions\CaptchaException.cs" />
     <Compile Include="Statics\StaticValues.cs" />
     <Compile Include="Utils\ProxerConverter\CommentStateIntegerToStringConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\CommentToHtmlConverter.cs" />
     <Compile Include="Utils\ProxerConverter\FskToImageListConverter.cs" />
     <Compile Include="Utils\ProxerConverter\LanguageToImageConverter.cs" />
     <Compile Include="Utils\ProxerConverter\LicenseIntegerToStringConverter.cs" />
     <Compile Include="Utils\ProxerConverter\SeasonToStringConverter.cs" />
+    <Compile Include="Utils\ProxerConverter\StateCommentIntegerToStringConverter.cs" />
     <Compile Include="Utils\ProxerConverter\StateIntegerToStringConverter.cs" />
     <Compile Include="Utils\UrlCollection.cs" />
     <Compile Include="Values\AnimeMangaGroupValue.cs" />
+    <Compile Include="Values\AnimeMangaKommentarValue.cs" />
     <Compile Include="Values\AnimeMangaLanguageValue.cs" />
+    <Compile Include="Values\AnimeMangaListInfoValue.cs" />
     <Compile Include="Values\AnimeMangaNameValue.cs" />
     <Compile Include="Values\AnimeMangaPublisherValue.cs" />
     <Compile Include="Values\AnimeMangaSeasonValue.cs" />
@@ -136,10 +142,12 @@
     <Compile Include="Values\ConferenceConstants.cs" />
     <Compile Include="Values\ConferenceMessageValue.cs" />
     <Compile Include="Values\ConferenceValue.cs" />
+    <Compile Include="Values\EpisodeValue.cs" />
     <Compile Include="Values\InfoValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token\ApiToken.cs" />
     <Compile Include="Values\NewsValue.cs" />
+    <Compile Include="Values\StreamValue.cs" />
     <Compile Include="Values\UserLoginValue.cs" />
     <Compile Include="Wrapper\MessageTemplateSelector.cs" />
     <EmbeddedResource Include="Properties\ProxerMeApi.Implementation.rd.xml" />

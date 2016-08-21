@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using ProxerMeApi.Implementation.Statics;
@@ -14,7 +15,8 @@ namespace ProxerMeApi.Implementation.Handler
         {
             string retval = Network.LoadUrlPost(UrlGetter.GetAnimeMangaGetEntryUrl(StaticValues.ApiVersion), PostParamGetter.GetAnimeMangaGetEntryParams(id, StaticValues.ApiToken), StaticValues.CookieContainer);
             BaseValue<AnimeMangaValue> baseValue = JsonConvert.DeserializeObject<BaseValue<AnimeMangaValue>>(retval);
-
+            ExceptionHandler.CheckForCaptcha(baseValue.Message);
+            
             return baseValue.Data;
         }
 
@@ -37,6 +39,16 @@ namespace ProxerMeApi.Implementation.Handler
         public void SetPublisher(IAnimeMangaValue animeMangaValue)
         {
             animeMangaValue.Publisher = AnimeMangaGetter.GetPublisher(animeMangaValue.Id);
+        }
+
+        public IAnimeMangaListInfoValue<IEpisodeValue> GetEpisodes(int animeMangaId)
+        {
+            return AnimeMangaGetter.GetListinfo(animeMangaId);
+        }
+
+        public List<IAnimeMangaKommentarValue> GetComments(int animeMangaId)
+        {
+            return AnimeMangaGetter.GetComments(animeMangaId);
         }
     }
 }

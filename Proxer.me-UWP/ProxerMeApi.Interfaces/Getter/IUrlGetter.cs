@@ -37,6 +37,8 @@
         string GetAnimeMangaGetLanguageUrl(string apiVersion);
         string GetAnimeMangaGetNamesUrl(string apiVersion);
         string GetAnimeMangaGetGroupsUrl(string apiVersion);
+        string GetAnimeMangaGetListinfoUrl(string apiVersion);
+        string GetAnimeMangaGetCommentsUrl(string apiVersion);
 
         #endregion
     }

@@ -111,14 +111,18 @@
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Expander.cs" />
     <Compile Include="Controls\MasterDetailsView.cs" />
     <Compile Include="Controls\PullToRefreshListView.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
-    <Compile Include="Converter\IntToVisibilityConverter.cs" />
+    <Compile Include="Converter\CountToVisibilityConverter.cs" />
     <Compile Include="Converter\LocalPathToImageConverter.cs" />
     <Compile Include="Converter\UnixTimestampToStringConverter.cs" />
+    <Compile Include="Events\ValueChangedEventArgs.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\MessageDialogExtensions.cs" />
+    <Compile Include="Extensions\PropertyExtensions\RichTextBlockBBCode.cs" />
+    <Compile Include="Extensions\PropertyExtensions\WebViewExtension.cs" />
     <Compile Include="Extensions\RandomExtensions.cs" />
     <Compile Include="Extensions\VisualTreeHelperExtensions.cs" />
     <Compile Include="Networking\Network.cs" />
@@ -136,6 +140,11 @@
     <Page Include="Controls\CircularProgressBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
